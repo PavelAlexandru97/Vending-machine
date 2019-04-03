@@ -1,28 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VendingMachine
+﻿namespace VendingMachine
 {
-    class Product
+    public class Product
     {
-        public int IdProduct { get; private set; }
+        public int Id { get; private set; }
         public string Name { get; private set; }
         public float Price { get; private set; }
-        public TypeOfProduct TypeOfProduct { get; private set; }
+        public ProductType ProductType { get; private set; }
         public int Size { get; private set; }
         public int Quantity { get; private set; }
 
-        public Product(int idProduct, string name, float price, string typeOfProduct, int size, int quantity)
+        public Product(int id, string name, float price, string productType, int size, int quantity)
         {
-            this.IdProduct = idProduct;
-            this.Name = name;
-            this.Price = price;
-            this.TypeOfProduct = new TypeOfProduct(typeOfProduct);
-            this.Size = size;
-            this.Quantity = quantity;
+            Id = id;
+            Name = name;
+            Price = price;
+            ProductType = new ProductType(productType);
+            Size = size;
+            Quantity = quantity;
+        }
+
+        // Ca sa obtii detaliile mai natural
+        public override string ToString()
+        {
+            var productInfo = string.Empty;
+            productInfo += Id + " ";
+            productInfo += Name + " ";
+            productInfo += Price + " ";
+            productInfo += ProductType.Name + " ";
+            productInfo += Size + " ";
+            productInfo += Quantity + " ";
+
+            return productInfo;
         }
     }
 }

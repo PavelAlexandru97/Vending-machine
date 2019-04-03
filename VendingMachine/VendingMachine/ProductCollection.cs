@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace VendingMachine
 {
@@ -10,54 +6,63 @@ namespace VendingMachine
     {
         private List<Product> products = new List<Product>();
 
-        public void AddProduct(int idProduct, string name, float price, string typeOfProduct, int size, int quantity)
+        public int Count
         {
-            Product product = new Product(idProduct, name, price, typeOfProduct, size, quantity);
+            get { return products.Count; }
+        }
+
+        // Metoda asta face mai mult decat spune numele, poate ar trebui sa se numeasca 'GenerateAndAddProduct'
+        public void AddProduct(int productId, string name, float price, string productType, int size, int quantity)
+        {
+            Product product = new Product(productId, name, price, productType, size, quantity);
             products.Add(product);
         }
 
-        public void RemoveProduct(int idProduct)
+        // Varianta mai logica
+        public void AddProduct(Product product)
+        {
+            products.Add(product);
+        }
+
+        public void RemoveProductByProductId(int productId)
         {
             foreach (var product in products)
             {
-                if (idProduct == product.IdProduct)
+                if (productId == product.Id)
                 {
                     products.Remove(product);
                 }
             }
         }
 
-        public int CountProducts()
+        public Product GetProductByProductId(int idProduct)
         {
-            int numbersOfProducts;
-            numbersOfProducts = products.Count;
-            return numbersOfProducts;
-        }
-
-        public Product GetProduct(int idProduct)
-        {
-            Product productFound = new Product(-1, "There is no product", -1, "undescribed", -1, -1);
             foreach (var product in products)
             {
-                if (idProduct == product.IdProduct)
+                if (idProduct == product.Id)
                 {
-                    productFound = product;
-                    return productFound;
+                    return product;
                 }
             }
-            return productFound;
+
+            return null;
         }
 
+        // Nu e responsabilitatea colectiei sa iti dea detalii despre un produs, ci responsabilitatea produsului in sine
+        // Nu-si are locul aici, eventual poti face override pe metoda ToString() de la Product (uite-te in clasa Product)
+        /*
         public string DisplayProduct(Product product)
         {
-            string informationOfProduct="";
-            informationOfProduct += product.IdProduct + " ";
-            informationOfProduct += product.Name + " ";
-            informationOfProduct += product.Price + " ";
-            informationOfProduct += product.TypeOfProduct.Name + " ";
-            informationOfProduct += product.Size + " ";
-            informationOfProduct += product.Quantity + " ";
-            return informationOfProduct;
+            var productInfo = string.Empty;
+            productInfo += product.Id + " ";
+            productInfo += product.Name + " ";
+            productInfo += product.Price + " ";
+            productInfo += product.ProductType.Name + " ";
+            productInfo += product.Size + " ";
+            productInfo += product.Quantity + " ";
+
+            return productInfo;
         }
+        */
     }
 }
