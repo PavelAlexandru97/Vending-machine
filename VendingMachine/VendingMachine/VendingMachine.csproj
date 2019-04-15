@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductCollection.cs" />
+    <Compile Include="FileOperations\DataImport.cs" />
+    <Compile Include="FileOperations\InputFile.cs" />
+    <Compile Include="Product\ContainableItem.cs" />
+    <Compile Include="Product\Product.cs" />
+    <Compile Include="Product\ProductCollection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProductType.cs" />
+    <Compile Include="Product\ProductType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,11 @@
+Name,Price,ProductType,Size,Row,Columns,Quantity
+CocaCola,2.5,ZeroZahar,1,0,0,10
+CocaCola,2.3,Clasic,1,0,1,10
+Fanta,2.2,Portocale,1,0,2,10
+Fanta,2.2,Cirese,1,0,3,10
+Fanta,2.2,Ananas,1,0,4,11
+Fanta,2.2,Lamaie,1,1,0,12
+Fanta,2.2,Pepene,2,1,1 2,13
+Lays,2,Salt,1,1,3,10
+Lays,2,Paprika,1,1,4,11
+Lays,2,Cheese,1,2,0,12
